@@ -20,7 +20,7 @@ public class DepthFirstSearch {
 		State startState =  new State(0,0,0);
 		stack.push(startState);
 		search();
-		System.out.println(visitedStates.size() + " possible states.");
+		output();
 	}
 	
 	public void search () { // look at this again
@@ -131,12 +131,22 @@ public class DepthFirstSearch {
 		return nextStates;
 	}
 	
-	public void output (State state) {
-		System.out.println(state.toString());
+	public void output () {
+		List v = new ArrayList<State>();
+		v.addAll(visitedStates);
+		Collections.sort(v);
+		System.out.println(v);
+		System.out.println("Total Possible States: " + v.size());
 	}
 	
 	public static void main(String[] args) {
-		DepthFirstSearch dfs = new DepthFirstSearch(8,5,3);
+		Scanner input = new Scanner(System.in);
+		
+		int a =  input.nextInt();
+		int b =  input.nextInt();
+		int c =  input.nextInt();
+		
+		DepthFirstSearch dfs = new DepthFirstSearch(a,b,c);
 		
 	}
 	
